@@ -71,6 +71,9 @@
     width: 100px;
     height: 100px;
 }
+.table tr:hover{
+    background-color: #f2f2f2;
+}
 
 /* edit button */
 .edit{
