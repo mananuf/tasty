@@ -1,0 +1,188 @@
+/* ------------------------ GLOBAL SYSTEM ------------------------------------ */
+/* target all html elements  and set to defaults*/
+*{
+    padding: 0; 
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+html, body{
+    display: grid;
+    height: 100%;
+    place-items: center;
+    background: #f2f2f2;
+}
+/* ------------------------ END GLOBAL SYSTEM ------------------------------------ */
+
+/* ------------------- form wrapper -------------------- */
+.wrapper{
+    max-width: 390px;
+    background: #fff;
+    box-shadow: 0 10px 15px rgba(0,0,0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* ------------------ form titles container -------------- */
+.wrapper .form-title-container{
+    display: flex;
+    width: 200%;
+}
+
+/* ---------------------- form titles --------------------------------- */
+.wrapper .form-title-container .title{
+    width: 50%;
+    font-size: 35px;
+    font-weight: 600;
+    text-align: center;
+    color: rgb(10, 15, 29);
+}
+
+/* -------------------------- form container ---------------------------------- */
+.wrapper .form-container{
+    width: 100%;
+    overflow: hidden;
+}
+
+/* slide controls */
+.wrapper .slide-controls{
+    position: relative;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    margin: 30px 0 10px 0;
+    justify-content: space-between;
+    border-radius: 5px;
+    /* border: 1px solid lightgrey; */
+    overflow: hidden;
+}
+
+#signup-slider{
+    color: #000;
+}
+
+/* slide */
+.slide-controls .slide{
+    height: 100%;  
+    width: 100%;
+    font-size: 18px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 48px;
+    cursor: pointer;
+    z-index: 1;
+    color: #fff ;
+    transition: all 0.6s ease;
+}
+
+/* slide Tabs */
+.slide-controls .slide-tab{
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    left: 0;
+    z-index: 0;
+    background: rgb(255,96,0);
+    border-radius: 5px;
+    border: 1px solid rgb(255,96,0) ;
+    transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+#signup:checked ~ .slide-tab{
+    left: 50%;
+}
+
+#signup:checked ~ #signup-slider{
+    color: #fff;
+}
+
+#signup:checked ~ #login-slider{
+    color: #000;
+}
+
+.form-container .form-container-inner{
+    display: flex;
+    width: 200%;
+}
+
+.form-container .form-container-inner form{
+    width: 50%;
+    padding: 20px;
+}
+/* -------------------------------- form -------------------------------- */
+/* .form-container .form-container-inner {
+
+} */
+
+/* --------------------------------- form field groups ---------------------- */
+.form-container-inner form .form-group{
+    height: 50px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ------------------------------- input fields ------------------------------ */
+.form-container-inner form .form-group input{
+    width: 100%;
+    height: 100%;
+    outline: none;
+    padding-left: 15px;
+    border-radius: 6px;
+    border: 1px solid lightgrey;
+    border-bottom-width: 2px;
+    font-size: 17px;
+    transition: all 0.3s ease;
+}
+
+/* input focus */
+.form-container-inner form .form-group input:focus{
+    border-color: rgb(255,96,0);
+    border-bottom: 3px solid rgb(255,96,0);
+}
+/* ----------------------------------- forgot password link -------------------------- */
+.form-container-inner form .forgot-password
+{
+    margin-top: 10px;
+}
+
+/* signup -link */
+.form-container-inner form .signup-link{
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* form links */
+.form-container-inner form .forgot-password a,
+.form-container-inner form .signup-link a
+{
+    color: rgb(224, 126, 64);
+}
+
+/* ----------------------- links hover effects ------------------ */
+.form-container-inner form .forgot-password a:hover,
+.form-container-inner form .signup-link a:hover{
+    color: rgb(255,96,0);
+}
+
+/* ----------------------- LOgin BUtton ------------------------------------------- */
+form .form-group input[type="submit"]{
+    color: #fff;
+    background-color: rgb(255,96,0);
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    padding-left: 0px;
+    transition: all 0.4s ease;
+}
+
+/* button hover */
+form .form-group input[type="submit"]:hover{
+    background: rgb(10, 15, 29);
+}

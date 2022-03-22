@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<!-- <div class="modal" id="form-modal"> -->
+
+<div class="form-body ">
+    <div class="wrapper">
+
+        <div class="title-text">
+           <div class="title login">
+              Login Form
+           </div>
+           <!-- <div class="title signup">
+              Signup Form
+           </div> -->
+        </div>
+        <div class="form-container">
+           <!-- <div class="toggle-controls">
+              <input type="radio" name="toggle" id="login" checked>
+              <input type="radio" name="toggle" id="signup">
+              <label for="login" class="toggle login">Login</label>
+              <label for="signup" class="toggle signup">Signup</label>
+              <div class="toggler-tab"></div> -->
+           </div>
+           <div class="form-inner">
+              <!-- --------------------------- LOGIN ---------------------------- -->
+              <form action="#" class="login" method="POST">
+                  {{ form.hidden_tag() }}
+                 <!-- -------- Email field -------------- -->
+                 <div class="field">
+                    {% if form.email.errors %}
+                       {{ form.email(class="input", placeholder="Email Address", required="required") }}
+
+                       {% for error in form.email.errors %}
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                       {{ form.email(class="input", placeholder="Email Address", required="required") }}
+                    {% endif %}
+                 </div>
+
+                 <!-- ---------- Password field ---------- -->
+                 <div class="field">
+                    {% if form.password.errors %}
+                       {{ form.password(class="input", placeholder="Enterpassword", required="required") }}
+                       {% for error in form.password.errors %}
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                       {{ form.password(class="input", placeholder="Enterpassword", required="required") }}
+
+                    {% endif %}
+                 </div>
+                 <div class="pass-link">
+                    <a href="#">Forgot password?</a>
+                 </div>
+                 <div class="field btn">
+                    <div class="btn-layer"></div>
+                    {{ form.submit(class="input", type="submit") }}
+                 </div>
+                 <div class="signup-link">
+                    Don't have an account yet? <a href="{{url_for('register')}}">Signup now</a>
+                 </div>
+              </form>
+            
+           </div>
+        </div>
+     </div>
+    
+</div>
+<!-- </div> -->
+
+{% endblock content %}
+

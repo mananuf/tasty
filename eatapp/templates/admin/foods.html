@@ -1,0 +1,39 @@
+{% extends 'admin/layout.html' %}
+
+{% block content %}
+    <div class="table-container">
+        <table class="table">
+            <caption>FOODS</caption>
+            <thead>
+                <th>S/N</th>
+                <th>Food Name</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>(&#8358;) Price</th>
+                <th>(%) Discount</th>
+                <th>Stock</th>
+                <!-- <th>Description</th> -->
+                <th>Date</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+                {% for food in foods %}
+                    <tr>
+                        <td> {{loop.index}} </td>
+                        <td> {{food.food_name}} </td>
+                        <td class="table-image"> <img src="{{url_for('static', filename='img/' + food.image)}}" width="50px" height="50px" alt=""> </td>
+                        <td> {{food.category.category_name}} </td>
+                        <td> {{food.price}} </td>
+                        <td> {{food.discount}} </td>
+                        <td> {{food.stock}} </td>
+                        <!-- <td> {{food.description}} </td> -->
+                        <td> {{food.date}} </td>
+                        <td><i class="edit fa-solid fa-pen-to-square"></i></td>
+                        <td><i class="delete fa-solid fa-trash-can"></i></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}

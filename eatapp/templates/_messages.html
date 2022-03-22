@@ -1,0 +1,13 @@
+  <!-- -------------------- FLASH MESSAGES ---------------------------- -->
+  {% with messages = get_flashed_messages(with_categories=true) %} <!--get flash messages and categories-->
+  {% if messages %} <!--if there's a message, then...-->
+      {% for category, message in messages %} <!--check for message and print conresponding category-->
+      <div class="alert-container">
+          <div class="alert alert-{{category}}">
+              <span class="closebtn">&times;</span>  
+               {{ message }}
+          </div>
+      </div>
+      {% endfor %}
+  {% endif %}
+{% endwith %}

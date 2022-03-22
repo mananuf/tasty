@@ -1,0 +1,655 @@
+/* ****************************** GLOBAL STYLES ***************************************** */
+/* target entire HTML content/elements */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    list-style-type: none; /*no styling for all list*/
+    text-decoration: none; /*no styling for all linls*/
+}
+
+html, body{
+    width: 100%;
+    background-repeat: no-repeat;
+    scroll-behavior: smooth;
+    /* background: linear-gradient(90deg, rgba(255,96,0,1) 0%, rgba(255,191,0,1) 100%); */
+}
+.clear-fix{clear: both;}
+
+/* img {vertical-align: middle;
+} */
+/* ************************** END GLOBAL STYLES ***************************************** */
+
+/* ************************** NAVIGATION BAR ***************************************** */
+/* ********** nav  ************* */
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    padding: 0 100px 0 50px;
+    box-shadow: 0 0 10px rgba(10, 4, 1, 0.2);
+    justify-content: space-between;
+}
+
+/* ---------------- logo -------------- */
+.navbar .logo span{
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: 21px;
+    color: rgb(10, 15, 29);
+}
+
+/* nav list */
+.navbar ul{
+    display: flex;
+    justify-content: flex-end;
+}
+/* nav list-items */
+.navbar ul li{
+    margin-left: 20px;   
+}
+/* nav links */
+.navbar ul li a{
+    color: rgb(255,96,0);
+    font-size: 18px;
+    font-weight: 500;
+    padding: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+/* nav links hover*/
+.navbar ul li a:hover,
+.navbar ul li a:active                      
+{
+    color: #fff;
+    background: rgb(255,96,0);
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* ************************** END NAVIGATION BAR ***************************************** */
+
+/* ************************** TOGGLING NAVBAR ****************************** */
+/* checkbox for toggling */
+.navbar input:checked ~ ul{
+    left: 0%;
+    transition: all 0.5s ease;
+}
+/* button for cancelling */
+#click:checked ~ .menu-btn i::before{
+    content: "\f00d";
+}
+#click{
+    display: none;
+}
+/* toggle button */
+.navbar .menu-btn i{
+    color: rgb(255,96,0);
+    font-size: 23px;
+    cursor: pointer;
+    display: none;
+}
+/* ************************** END TOGGLE BUTTON ************************ */
+
+
+/* ----------------------------------- SLIDER ----------------------------------------- */
+/* .slide {display: none;} */
+/* .slide-display{
+    display: flex;
+} */
+
+
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 80%;
+    position: relative;
+    margin: auto;
+    padding: 10px;
+}
+
+/* slideshow images */
+.slideshow-container .slide img{
+    width: 45%;
+    height: 70vh;
+}
+
+/* slide show write-ups container */
+.slideshow-container .slide-content{
+    position: absolute;
+    top: 25%;
+    left: 52%;
+    /* right: 2%; */
+}
+
+/* slider h3 header  */
+.slideshow-container .slide-content h3{
+    font-size: 60px;
+    /* color: rgb(255,96,0); */
+    color: rgb(10, 15, 29);
+}
+
+/* slideshow paragraph */
+.slideshow-container .slide-content p{
+    font-size: 18px;
+    color: rgb(121, 124, 133);
+}
+
+/* slideshow order button */
+.slideshow-container .slide-content .order-btn{
+    font-size: 17px;
+    font-weight: 500;
+    padding: 10px;
+    background-color: rgb(255,96,0);
+    color: #fff;
+    width: fit-content;
+    display: block;
+    margin-top: 20px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* order button hover */
+.slideshow-container .slide-content .order-btn:hover{
+    background-color: rgb(10, 15, 29);
+}
+
+/* bullets/indicators container */
+/* .indicators-container{
+	position:absolute;
+  	bottom:1.5%;
+    left:40%;
+} */
+
+/* The bullets/indicators */
+/* .indicator {
+    height: 5px;
+    width: 35px;
+    cursor: pointer;
+    margin: 0 2px;
+    background-color: #717171;
+    border-radius: 3px;
+    display: inline-block;
+    transition: background-color 0.9s ease;
+  
+}
+*/
+/* indicators */
+.active-indicator {
+     background-color: #fff;
+}
+/* Fading animation */
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
+
+
+/* -------------------------------------- END SLIDER -------------------------------------------------- */
+
+
+/* -------------------------------------- MENU CARDS -------------------------------------------------- */
+
+/* ------------ menu container ---------  */
+.menu{
+    display: grid;
+    padding: 10px;
+    margin: 10px auto;
+    padding: 10px 100px;
+
+}
+
+/* ------------------ menu container caption ----------------------- */
+.menu .caption{
+    text-align: center;
+}
+
+.menu .caption span{
+    color: rgb(255,96,0);
+    font-size: 17px;
+}
+
+.menu .caption h3{
+    color: rgb(10, 15, 29);
+    font-size: 35px;
+}
+/* ------------------ END menu container caption ------------------- */
+
+/* grid display */
+.menu .menu-grid{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: baseline;
+    gap: 15px;
+    margin-top: 5%;
+
+}
+
+/* menu cards */
+.menu .menu-grid .menu-card{
+    border: 1px solid rgba(121, 124, 133, 0.309);
+    box-shadow: 0 8px 13px rgba(10, 4, 1, 0.2);
+    border-radius: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* menu card images */
+.menu .menu-grid .menu-card img{
+    max-width: 200px;
+    width: fit-content;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.menu .menu-grid .menu-card .content{
+    padding: 20px;
+}
+/* menu card title */
+.menu .menu-grid .menu-card h3{
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(10, 15, 29);
+}
+.menu .menu-grid .menu-card p{
+    color: rgb(121, 124, 133);
+}
+/* menu card button  */
+.menu .menu-grid .menu-card .order-btn{
+    padding: 10px;
+    background-color: rgb(255,96,0);
+    color: #fff;
+    display: block;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+.menu .menu-grid .menu-card .order-btn:hover{
+    background-color: rgb(10, 15, 29);
+}
+
+/* -------------------------------------- END MENU CARDS -------------------------------------------------- */
+
+
+/* -------------------------------------- FOOTER ------------------------------------------------------ */
+/* footer */
+#footer{
+    bottom: 0;
+    background: rgba(121, 124, 133, 0.2);
+    border-top: 3px solid rgba(10, 15, 29, 0.3);
+    max-width: 100%;
+    position: relative;
+    width: 100%;
+}
+
+/* footer container  */
+#footer .container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* footer top links */
+#footer .container .top-content{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+/* footer top content headings */
+#footer .container .top-content h3{
+    color: rgb(10, 15, 29);
+    font-size: 30px;
+    padding: 0 0 7px 0;
+}
+
+#footer .container ul li{
+    padding: 3px 0;
+}
+
+/* footer .top-content links */
+#footer .container .top-content ul li a{
+    color: rgb(121, 124, 133);
+}
+
+#footer .container .location ul li a:hover,
+#footer .container .quick-links ul li a:hover,
+#footer .container .contact ul li a:hover{
+    color: rgb(255,96,0);
+}
+
+/* footer .top-content icons */
+#footer .container .top-content ul li a i{
+    color: rgb(121, 124, 133);
+    font-size: 23px;
+}
+
+/* follow us section  */
+#footer .container .top-content .follow-us ul{
+    display: flex;
+}
+
+/* follow us links */
+#footer .container .top-content .follow-us ul li{
+    padding: 0 10px;
+}
+
+/* facebook icon on hover  */
+#footer .container .top-content ul li a .fa-facebook:hover{
+    color: #2217f2;
+}
+
+/* twitter icon on hover  */
+#footer .container .top-content ul li a .fa-twitter:hover{
+    color: #1DA1F2;
+}
+
+/* whatsapp icon on hover  */
+#footer .container .top-content ul li a .fa-whatsapp:hover{
+    color: #2FD366;
+}
+
+/* footer horizontal rule  */
+#footer .container hr{
+    color: rgba(121, 124, 133, 0.2);
+    margin: 10px 0;
+    border-radius: 2px;
+}
+
+#footer .container .bottom-content{
+    text-align: center;
+    padding: 5px 0 10px 0;
+}
+
+
+
+
+
+
+
+
+
+
+/* **************************** **  @Media queries [responsiveness]****************************** */
+
+/* ----------------------- medium display ------------------------------- */
+@media only screen and (max-width: 1200px){
+    /* --------------------------------- slideshow ------------------------------------------- */
+    /* slieshow container */
+    .slider-container{
+        position: relative;
+        /* display: grid;
+        justify-items: center; */
+        left: 2%;
+        max-width: 100%;
+        width: 90%;
+    }
+
+    /* slideshow images  */
+    .slideshow-container .slide img{
+        height: 50vh;
+        width: 50%;
+    }
+
+    /* slideshow contents */
+    .slideshow-container .slide-content{
+        left: 52%;
+    }
+
+    /* slider header */
+    .slideshow-container .slide-content h3{
+        font-size: 55px;
+    }
+
+    .slideshow-container .slide-content p{
+        font-size: 14pt;
+    }
+
+    /* ---------------------------- menu section -------------------------------- */
+    .menu{
+        position: relative;
+        /* top: 10vh; */
+        padding: 10px 80px;
+    }
+    .menu .menu-grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+       
+}
+
+
+@media (max-width: 990px) {
+    #footer .container .top-content{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+
+
+
+
+/* ----------------------- smaller display --------------------------- */
+@media only screen and (max-width: 695px){
+    /* navbar contents */
+    p{
+        font-size: 12pt;
+    }
+    .navbar{
+        padding: 0 20px 0 20px;
+        position: fixed;
+        z-index: 1;
+        height: 8vh;
+    }
+    /* navbar list */
+    .navbar ul{
+        position: fixed;
+        height: 100vh;
+        background-color: rgb(255,96,0);
+        width: 40%;
+        left: -40%;
+        top: 8vh;
+        display: block;
+        text-align: center;
+        z-index: 1;     /*place in front of other displays*/
+    }
+    /* navbar list-items */
+    .navbar ul li{
+        margin: 40px 0;
+    }
+    /* navbar links */
+    .navbar ul li a{
+        font-size: 20px;
+        display: block;
+        color: #fff;
+    }
+    /* navlinks on hover */
+    .navbar ul li a:hover{
+        color: rgb(255,96,0);
+        background: #fff;
+        border-radius: 0;
+    }
+    /* navlinks active  */
+    .navbar ul li a:active{
+        color: rgb(255,96,0);
+        background: #fff;
+        border-top-left-radius: 50px;
+        border-bottom-left-radius: 50px;
+        margin-left: 2px;
+    }
+    
+    /* toggle button */
+    .navbar .menu-btn i{
+        display: block;
+    }
+
+    /* --------------------------------- slideshow ------------------------------------------- */
+    /* slieshow container */
+    .slider-container{
+        position: relative;
+        /* display: grid;
+        justify-items: center; */
+        left: 10%;
+        max-width: 100%;
+        width: 90%;
+        top: 8vh;
+    }
+
+    /* slideshow images  */
+    .slideshow-container .slide img{
+        height: 58vh;
+        width: 80%;
+    }
+
+    /* slideshow contents */
+    .slideshow-container .slide-content{
+        left: -5%;
+        top: 90%;
+    }
+
+    /* slider header */
+    .slideshow-container .slide-content h3{
+        font-size: 50px;
+    }
+
+    .slideshow-container .slide-content p{
+        font-size: 11pt;
+    }
+
+    /* ---------------------------- menu section -------------------------------- */
+    .menu{
+        position: relative;
+        top: 32vh;
+        padding: 10px 50px;
+    }
+    .menu .menu-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    /* _------------------------------- footer ---------------------- */
+    #footer{
+        position: relative;
+        top: 30vh;
+    }
+    /* footer container  */
+    #footer .container{
+        width: 100%;
+        /* grid-template-columns: repeat(autofill, minmax(250px, 2fr)); */
+    }
+
+    /* footer top links */
+    #footer .container .top-content{
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        margin-top: 20px;
+        padding: 10px;
+        padding-left: 15%;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* -------------------------------   xtra-small display ------------------------------------- */
+
+@media (max-width: 550px){
+    p{
+        font-size: 11pt;
+    }
+
+    /* --------------------------------- slideshow ------------------------------------------- */
+    /* slieshow container */
+    .slider-container{
+        position: relative;
+        /* display: grid;
+        justify-items: center; */
+        left: 10%;
+        max-width: 100%;
+        width: 90%;
+    }
+
+    /* slideshow images  */
+    .slideshow-container .slide img{
+        height: 35vh;
+        width: 80%;
+    }
+
+    /* slideshow contents */
+    .slideshow-container .slide-content{
+        left: 0%;
+        top: 90%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+
+    /* slider header */
+    .slideshow-container .slide-content h3{
+        font-size: 50px;
+    }
+
+    .slideshow-container .slide-content p{
+        font-size: 11pt;
+    }
+     /* slideshow button */
+     .slideshow-container .slide-content .order-btn{
+        /* margin: 20px 50px; */
+        margin-left: 28%;
+     }
+
+
+
+    /* ------------------------ menu display ---------------------------------- */
+    /* ---------------------------- menu section -------------------------------- */
+    .menu{
+        position: relative;
+        top: 32vh;
+        padding: 10px 80px;
+    }
+    .menu .menu-grid{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    /* _------------------------------- footer ---------------------- */
+    #footer{
+        position: relative;
+        top: 30vh;
+    }
+    /* footer container  */
+    #footer .container{
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    /* footer top links */
+    #footer .container .top-content{
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+        margin-top: 20px;
+        padding: 10px;
+        padding-left: 32%;
+    }
+}

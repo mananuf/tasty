@@ -1,0 +1,70 @@
+/* ---------------- FORM BACKGROUND ---------- */
+.category-container{
+    display: grid;
+    height: 100%;
+    width: 100%;
+    place-items: center;
+}
+
+/* ------------------ FORM CONTAINER -------------- */
+.category-container .category-form{
+    margin-top: 50px;
+    width: 40%;
+    border: 2px solid rgba(211, 211, 211, 0.719);
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ----------------- FORM TITLE --------------------------- */
+.category-container .category-form h2{
+    background-color: rgb(255, 96, 0);
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* ------------------- FORM ----------------------- */
+.category-container .category-form form{
+    padding: 20px;
+}
+
+/* -----------------FORM TEXT INPUT AREA ------------ */
+.category-form form input[type="text"]{
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    border: 1px solid lightgrey;
+    display: block;
+}
+
+/* ------------------- FILE INPUT -------------------------------- */
+.category-form form input[type="file"]{
+    display: block;
+    padding: 2px;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+/* -------------------SUBMIT BUTTON----------------- */
+.category-form form input[type="submit"]{
+    display: block;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid #00a108;
+    background-color: #00a108;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* ---------------- HOVER button ------------------ */
+.category-form form input[type="submit"]:hover{
+    background-color: #037008;
+}
+
+

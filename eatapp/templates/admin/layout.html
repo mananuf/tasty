@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>ADMIN - {{title}}</title>
+    {% else %}
+        <title>ADMIN</title>
+    {% endif %}
+    <!-- *********************** external files ******************************** -->
+    <!-- main css -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/forms.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/alerts.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/addcategory.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/admin.css')}}">
+    <!-- font awesome icons -->
+    <script src="https://kit.fontawesome.com/d08fa5718e.js" crossorigin="anonymous"></script>
+    <!-- poppins font import -->
+    <link href='https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap' rel='stylesheet'>
+</head>
+<body>
+    <!-- ************* Navigation bar ********************* -->
+    <nav class="navbar">
+        <!-- logo -->
+        <div class="logo">
+            <a href="{{url_for('admin')}}">
+                <span>ADMIN PANEL</span>
+            </a>
+        </div>
+        <!-- end of logo -->
+
+        <!-- toggle button -->
+        <input type="checkbox" id="click">
+        <label for="click" class="menu-btn">
+            <i class="fa-solid fa-bars"></i>
+        </label>
+        <!-- end toggle button -->
+
+        <!-- navlinks -->
+        <ul>
+            <li>
+                <a href="{{url_for('home')}}">Home</a>
+            </li>
+            <li>
+                <a href="#">Users</a>
+            </li>
+            <li>
+                <a href="{{url_for('foods')}}">Foods</a>
+            </li>
+            <li>
+                <a href="#">Categories</a>
+            </li>
+            <li>
+                <a href="#">Orders</a>
+            </li>
+            <li>
+                <a href="{{url_for('login')}}">Login</a>
+            </li>
+        </ul>
+        <!-- end of navlinks -->
+    </nav>
+    <!-- ************* END of Navigation bar ********************* -->
+
+    {% include '_messages.html' %}
+
+    {% block content %} {% endblock content %}
+
+
+
+    <!-- ----------- FOOTER ---------------------------------------- -->
+    <!-- footer -->
+    <footer id="footer">
+        <div class="container">
+            <!-- bottom contents  -->
+            <div class="bottom-content">
+                <p>Copyright &copy;2022 Project Team 4</p>
+            </div>
+        </div>
+    </footer>
+    <!-- /footer -->
+
+
+    <!-- scripts -->
+    {% block javascript %}
+    <script src="{{url_for('static', filename='js/forms.js')}}"></script>
+    <script src="{{url_for('static', filename='js/alerts.js')}}"></script>
+    <script src="{{url_for('static', filename='js/slider.js')}}"></script>
+    {% endblock %}
+</body>
+</html>
