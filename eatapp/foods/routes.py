@@ -19,6 +19,14 @@ def category():
     return render_template('admin/category.html', title='Category', categories=categories)
 
 
+
+#----------------------- UPDATE CATEGORY ROUTE  ---------------------------------
+@app.route("/updatecategory/<int:id>" , methods=['GET','POST'])
+def updateCategory(id):
+    return render_template('admin/updatecategory.html', title="update category")
+
+
+
 #----------------------- FOOD ROUTE  ---------------------------------
 @app.route("/foods")
 def foods():
