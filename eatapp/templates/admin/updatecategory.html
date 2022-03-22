@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="category-container">
+        <div class="category-form">
+                <h2>UPDATE CATEGORY</h2>
+                <form action="" method="POST">
+                    <input type="text" name="update-category" id="update-category" value="{{update_category.category_name}}" required>
+                    <!-- <input type="file" name="category_image" id="category_image"> -->
+                    <div class="button-group">
+                        <input type="submit" value="Update Category">
+                        <input type="submit" value="Cancel" href="{{url_for('category')}}" id="cancel">
+                    </div>
+                </form>
+        </div>
+    </div>
+{% endblock content %}
