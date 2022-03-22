@@ -62,9 +62,27 @@
     cursor: pointer;
 }
 
+
 /* ---------------- HOVER button ------------------ */
 .category-form form input[type="submit"]:hover{
     background-color: #037008;
 }
 
+/* update buttons */
+.category-form form .button-group{
+    display: flex;
+    justify-content:space-between ;
+}
 
+#cancel{
+    display: block;
+    padding: 5px;
+    margin: 10px 0;
+    border-radius: 4px;
+    border: 1px solid red;
+    background-color: red;
+    color: #fff;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
