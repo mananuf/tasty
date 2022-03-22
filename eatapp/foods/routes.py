@@ -16,6 +16,11 @@ def admin():
 @app.route("/category")
 def category():
     categories = Categories.query.all()
+    
+
+    # DELETING ITEMS FROM CATEGORY TABLE
+    if request.method == "POST":
+        pass
     return render_template('admin/category.html', title='Category', categories=categories)
 
 
@@ -23,7 +28,18 @@ def category():
 #----------------------- UPDATE CATEGORY ROUTE  ---------------------------------
 @app.route("/updatecategory/<int:id>" , methods=['GET','POST'])
 def updateCategory(id):
-    return render_template('admin/updatecategory.html', title="update category")
+    update_category = Categories.query.get_or_404(id)   # get data in Categories model class with the specified id
+    category = request.form.get('update-category')     # get data from update route
+
+    if request.method == 'POST':
+        update_category.category_name = category    # from specied id, get category name and change with newly inputted vlaue 
+        flash(f'{update_category.category_name} was successfully modified', 'success')
+        db.session.commit()     # save changes to database
+        
+        return redirect(url_for('category'))    # redirect to category page
+
+    return render_template('admin/updatecategory.html', title="update brand", update_category=update_category)
+
 
 
 
@@ -32,6 +48,8 @@ def updateCategory(id):
 def foods():
     foods = Food.query.all()
     return render_template('admin/foods.html', title='Foods', foods=foods)
+
+
 
 
 #----------------------- ROUTE FOR ADDING CATEGORIES ---------------------------------
