@@ -1,0 +1,96 @@
+/* -------------------------------- DELETE MODAL --------------------------- */
+
+  /* Set a style for all buttons */
+  .modal-btn{
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+  
+  .modal-btn:hover {
+    opacity:1;
+  }
+  
+  /* Float cancel and delete buttons and add an equal width */
+  .delete-modal-content .cancelbtn, 
+  .delete-modal-content .deletebtn {
+    width: 49%;
+    padding: 10px;
+    margin: 20px 0;
+    cursor: pointer;
+  }
+  
+  /* Add a color to the cancel button */
+ .delete-modal-content .cancelbtn {
+    color: #fff;
+    border: 1px solid rgb(27, 25, 25);
+    background-color: rgb(27, 25, 25);
+  }
+  
+  /* Add a color to the delete button */
+  .delete-modal-content .deletebtn {
+    background-color: #f10606;
+    color: #fff;
+    border: 1px solid #f1060691;
+  }
+  
+  /* Add padding and center-align text to the container */
+.delete-modal-content .container {
+    /* padding: 16px; */
+    text-align: center;
+}
+  
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: #474e5d;
+    padding-top: 50px;
+}
+  
+  /* Modal Content/Box */
+.delete-modal-content {
+    display: grid;
+    margin: 0 auto;
+    width: 35%;  
+    background-color: #f1f1f1;
+    place-items: center;
+    border: 2px solid rgba(211, 211, 211, 0.555);
+    border-radius: 10px;
+}
+   
+  /* The Modal Close Button (x) */
+.delete-modal-content .close-modal {
+    font-size: 40px;
+    font-weight: 500;
+    padding: 0 10px;
+    color: #2b2929;
+    justify-self: flex-end;
+    transition: all 0.3s ease;
+}
+  
+.delete-modal-content .close-modal:hover,
+.delete-modal-content .close-modal:focus {
+    color: #f44336;
+    cursor: pointer;
+}
+  
+/* Clear floats */
+.clearfix{
+    display: flex;
+    justify-content: space-between;
+}
+  
+  /* Change styles for cancel button and delete button on extra small screens */
+@media screen and (max-width: 300px) {
+   .delete-modal-content .cancelbtn, .delete-modal-content .deletebtn {
+       width: 100%;
+    }
+}

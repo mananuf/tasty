@@ -19,7 +19,7 @@
   .alert-warning {background-color: #ff9800;}
   .alert-danger {background-color: #f44336;}
   
-  .closebtn {
+ .alert .closebtn {
     margin-left: 15px;
     color: white;
     font-weight: bold;
@@ -30,6 +30,6 @@
     transition: 0.3s;
   }
   
-  .closebtn:hover {
+ .alert .closebtn:hover {
     color: black;
   }

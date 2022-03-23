@@ -33,9 +33,36 @@
                             <a href="{{url_for('updateFood', id=food.id)}}" title="edit {{food.food_name}}"><i class="edit fa-solid fa-pen-to-square"></i></a>
                         </td>
                         <td>
-                            <a href="{{url_for('updateFood', id=food.id)}}" title="delete {{food.food_name}}"><i class="delete fa-solid fa-trash-can"></i></a>
+                            <!-- <a href="{{url_for('updateFood', id=food.id)}}" title="delete {{food.food_name}}"><i class="delete fa-solid fa-trash-can"></i></a> -->
+                            <button onclick="document.getElementById('delete-modal-{{food.id}}').style.display='block'" class="modal-btn" title="delete {{food.food_name}}"> 
+                                <i class="delete fa-solid fa-trash-can"></i>
+                            </button>
                         </td>
                     </tr>
+
+                    <!-- ------------------------------ CONFIRM-DELETE CATEGORY MODAL --------------------- -->
+                    <div id="delete-modal-{{food.id}}" class="modal delete-modal">
+                    
+                        <div class="delete-modal-content">
+                            <span onclick="document.getElementById('delete-modal-{{food.id}}').style.display='none'" class="close-modal" title="Close Modal">×</span>
+                            
+                                <div class="container">
+                                    <h1>Delete {{food.food_name}}</h1>
+                                    <p>Are you sure you want to delete {{food.food_name}} foods?</p>
+                                    
+                                    <div class="clearfix">
+                                        <button type="button" onclick="document.getElementById('delete-modal-{{food.id}}').style.display='none'" class="cancelbtn">Cancel</button>  
+
+                                    <form  action="{{url_for('deleteFood', id=food.id)}}" method="POST">
+                                        <button type="submit" onclick="document.getElementById('delete-modal-{{food.id}}').style.display='none'" class="deletebtn">Delete</button>
+                                    </form>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                    </div>
+                    <!-- --------------------------------- END MODAL ------------------------------------------ -->
+
                 {% endfor %}
             </tbody>
         </table>

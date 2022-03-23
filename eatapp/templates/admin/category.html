@@ -20,9 +20,37 @@
                     <a href="{{url_for('updateCategory', id=category.id)}}" title="edit {{category.category_name}}" ><i class="edit fa-solid fa-pen-to-square"></i></a>
                 </td>
                 <td>
-                    <a href="#" title="delete {{category.category_name}}"><i class="delete fa-solid fa-trash-can"></i></a>
-                </td>
+                    <!-- <a href="#" title="delete {{category.category_name}}"></a> -->
+                    <button onclick="document.getElementById('delete-modal-{{category.id}}').style.display='block'" class="modal-btn" title="delete {{category.category_name}}"> 
+                        <i class="delete fa-solid fa-trash-can"></i>
+                    </button>
+                </td> 
             </tr>
+
+            
+            <!-- ------------------------------ CONFIRM-DELETE CATEGORY MODAL --------------------- -->
+            <div id="delete-modal-{{category.id}}" class="modal delete-modal">
+               
+                <div class="delete-modal-content">
+                    <span onclick="document.getElementById('delete-modal-{{category.id}}').style.display='none'" class="close-modal" title="Close Modal">×</span>
+                    
+                        <div class="container">
+                            <h1>Delete {{category.category_name}}</h1>
+                            <p>Are you sure you want to delete {{category.category_name}} category?</p>
+                            
+                            <div class="clearfix">
+                                <button type="button" onclick="document.getElementById('delete-modal-{{category.id}}').style.display='none'" class="cancelbtn">Cancel</button>  
+
+                            <form  action="{{url_for('deleteCategory', id=category.id)}}" method="POST">
+                                <button type="submit" onclick="document.getElementById('delete-modal-{{category.id}}').style.display='none'" class="deletebtn">Delete</button>
+                            </form>
+                            </div>
+                        </div>
+                    
+                </div>
+            </div>
+            <!-- --------------------------------- END MODAL ------------------------------------------ -->
+
             {% endfor %}
         </tbody>
     </table>

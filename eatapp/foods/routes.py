@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import session,redirect,render_template,request,flash,url_for, current_app
 from eatapp import app, db, photos
 from eatapp.foods.models import Categories, Food
@@ -43,6 +44,23 @@ def updateCategory(id):
 
 
 
+#----------------------- ROUTE FOR DELETING CATEGORY ---------------------------------
+@app.route("/deletecategory/<int:id>", methods=["POST"])
+def deleteCategory(id):
+    category = Categories.query.get_or_404(id)      # get specied data
+
+    if request.method == "POST":
+        db.session.delete(category)     # delete category
+        db.session.commit()             # save changes to DB
+
+        flash(f'{category.category_name} has be removed successfully', 'success')
+        return redirect(url_for('category'))    # return to cagory page
+    
+    flash(f'{category.category_name} could not be removed', 'warning')
+    return redirect(url_for('category'))    # return to cagory page
+
+
+
 #----------------------- FOOD ROUTE  ---------------------------------
 @app.route("/foods")
 def foods():
@@ -50,7 +68,7 @@ def foods():
     return render_template('admin/foods.html', title='Foods', foods=foods)
 
 
-#----------------------- UPDATE CATEGORY ROUTE  ---------------------------------
+#----------------------- ROUTE FOR UPDATING FOOD ---------------------------------
 @app.route("/updatefood/<int:id>", methods=["GET","POST"])
 def updateFood(id):
     categories = Categories.query.all()     # get all data from Categories table
@@ -90,6 +108,30 @@ def updateFood(id):
     
 
     return render_template('admin/updatefood.html', title="Update Food", form=form, categories=categories, update_food=update_food)
+
+
+#----------------------- ROUTE FOR DELETING FOOD ---------------------------------
+@app.route("/deletefood/<int:id>", methods=["POST"])
+def deleteFood(id):
+    food = Food.query.get_or_404(id)      # get specied data
+
+    if request.method == "POST":
+        # ---------------- DELETING IMAGEs ------------------------------------
+        if request.files.get('image'):
+            try:
+                os.unlink(os.path.join(current_app.root_path, "static/img/" + food.image))   # get image from path and delete
+                food.image = photos.save(request.files.get('image'), name=secrets.token_hex(7) + '.')    # get the image and save with a hashed name
+            except Exception as e:
+                print(e)
+
+        db.session.delete(food)     # delete food
+        db.session.commit()             # save changes to DB
+
+        flash(f'{food.food_name} has be removed successfully', 'success')
+        return redirect(url_for('foods'))    # return to cagory page
+    
+    flash(f'{food.food_name} could not be removed', 'warning')
+    return redirect(url_for('foods'))    # return to cagory page
 
 
 
