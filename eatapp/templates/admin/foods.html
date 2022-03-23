@@ -9,8 +9,8 @@
                 <th>Food Name</th>
                 <th>Image</th>
                 <th>Category</th>
-                <th>(&#8358;) Price</th>
-                <th>(%) Discount</th>
+                <th>Price</th>
+                <th>Discount</th>
                 <th>Stock</th>
                 <!-- <th>Description</th> -->
                 <th>Date</th>
@@ -23,17 +23,17 @@
                         <td> {{loop.index}} </td>
                         <td> {{food.food_name}} </td>
                         <td class="table-image"> <img src="{{url_for('static', filename='img/' + food.image)}}" width="50px" height="50px" alt=""> </td>
-                        <td> {{food.category.category_name}} </td>
-                        <td> {{food.price}} </td>
-                        <td> {{food.discount}} </td>
+                        <td> {{food.category.category_id}} </td>
+                        <td>&#8358; {{food.price}} </td>
+                        <td> {{food.discount}}% </td>
                         <td> {{food.stock}} </td>
                         <!-- <td> {{food.description}} </td> -->
                         <td> {{food.date}} </td>
                         <td>
-                            <a href="#" title="edit {{food.food_name}}"><i class="edit fa-solid fa-pen-to-square"></i></a>
+                            <a href="{{url_for('updateFood', id=food.id)}}" title="edit {{food.food_name}}"><i class="edit fa-solid fa-pen-to-square"></i></a>
                         </td>
                         <td>
-                            <a href="#" title="delete {{food.food_name}}"><i class="delete fa-solid fa-trash-can"></i></a>
+                            <a href="{{url_for('updateFood', id=food.id)}}" title="delete {{food.food_name}}"><i class="delete fa-solid fa-trash-can"></i></a>
                         </td>
                     </tr>
                 {% endfor %}

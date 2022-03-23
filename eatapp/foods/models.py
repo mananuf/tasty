@@ -20,7 +20,7 @@ class Food(db.Model):
     category_id = db.Column(db.Integer, db.ForeignKey('categories.id'),
         nullable=False)
     category = db.relationship('Categories',
-        backref=db.backref('categories', lazy=True))
+        backref=db.backref('food', lazy=True))
 
     image = db.Column(db.String(150), nullable=False, default="image.png")
 

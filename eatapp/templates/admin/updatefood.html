@@ -1,0 +1,118 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="category-container">
+        <div class="category-form">
+            <h2>ADD FOOD</h2>
+            <form action="" method="POST" enctype="multipart/form-data"  class="addfood">
+                {{ form.hidden_tag() }}
+                <!-- -------------------------- FOOD NAME --------------------- -->
+                <div class="field">
+                    {{ form.food_name.label(class="label") }}
+                    {% if form.food_name.errors %}    <!-- if there's an error -->
+                       {{ form.food_name(class="integer-field", placeholder="Add food name", required="required") }}
+                       {% for error in form.food_name.errors %} <!--loop through the possible errors-->
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                    {{ form.food_name(class="integer-field", placeholder="Add food name", required="required") }}
+                    {% endif %}
+                 </div>
+                
+                 <!-- --------------------------- PRICE --------------------------- -->
+                 <div class="field">
+                    {{ form.price.label(class="label") }}
+                    {% if form.price.errors %}    <!-- if there's an error -->
+                       {{ form.price(class="integer-field", placeholder="Add price", required="required") }}
+                       {% for error in form.price.errors %} <!--loop through the possible errors-->
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                    {{ form.price(class="integer-field", placeholder="Add price", required="required") }}
+                    {% endif %}
+                 </div>
+
+                 <!-- --------------------------- DISCOUNT --------------------------- -->
+                 <div class="field">
+                    {{ form.discount.label(class="label") }}
+                    {% if form.discount.errors %}    <!-- if there's an error -->
+                       {{ form.discount(class="integer-field", required="required") }}
+                       {% for error in form.discount.errors %} <!--loop through the possible errors-->
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                    {{ form.discount(class="integer-field", required="required") }}
+                    {% endif %}
+                 </div>
+
+                 <!-- --------------------------- Stock --------------------------- -->
+                 <div class="field">
+                    {{ form.stock.label(class="label") }}
+                    {% if form.stock.errors %}    <!-- if there's an error -->
+                       {{ form.stock(class="integer-field", placeholder="Add stock", required="required") }}
+                       {% for error in form.stock.errors %} <!--loop through the possible errors-->
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                    {{ form.stock(class="integer-field", placeholder="Add stock", required="required") }}
+                    {% endif %}
+                 </div>
+
+                 <!-- ------------------------CATEGORIES --------------------- -->
+                 <div class="field">
+                  <label for="category" class="label">Category</label>
+                  <select name="category" id="category" class="integer-field" value="{{update_food.category_id}}">
+                     <!-- <option  > {{update_food.category_name}} </option> -->
+                     <!-- loop through Categories of food -->
+                     {% for category in categories %}
+                        <option value="{{categories.id}}">{{category.category_name}} </option>   <!-- # display category -->
+                     {% endfor %}
+                  </select>
+                 </div>
+
+                   <!-- --------------------------- IMAGE --------------------------- -->
+                   <div class="field">
+                     {{ form.image.label(class="label") }}
+                     {% if form.image.errors %}    <!-- if there's an error -->
+                        {{ form.image(class="integer-field", placeholder="Add image", required="required") }}
+                        {% for error in form.image.errors %} <!--loop through the possible errors-->
+                           <div class="invalid-feedback">
+                              {{error}}
+                           </div>
+                        {% endfor %}
+                     {% else %}
+                     {{ form.image(class="integer-field", placeholder="Add image", required="required") }}
+                     {% endif %}
+                  </div>
+
+                 <!-- --------------------------- DESCRIPTION --------------------------- -->
+                 <div class="field">
+                    {{ form.description.label(class="label") }}
+                    {% if form.description.errors %}    <!-- if there's an error -->
+                       {{ form.description(class="integer-field", placeholder="Add description", required="required") }}
+                       {% for error in form.description.errors %} <!--loop through the possible errors-->
+                          <div class="invalid-feedback">
+                             {{error}}
+                          </div>
+                       {% endfor %}
+                    {% else %}
+                    {{ form.description(class="integer-field", placeholder="Add description", required="required") }}
+                    {% endif %}
+                 </div>
+
+                 <!-- ----------------------------SUBMIT BUTTON ---------------------- -->
+                 <div class="field">
+                    <input type="submit" value="Update">
+                 </div>
+            </form>
+        </div>
+    </div>
+{% endblock content %}
