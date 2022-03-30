@@ -87,144 +87,77 @@
             <span>Our Dishes</span>
             <h3>Menu</h3>
         </div>
+
+        <!-- GRID VIEW HOUSING ALL MENU-CARDS -->
         <div class="menu-grid">
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-       
 
-        
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-        
-        
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-    
+            <!-- loop for food items -->
+            {% for food in foods.items %}       <!-- .items to get number of items for pagination --> 
 
-        
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
+            <!--card display  -->
+                <div class="menu-card">
+                    <!-- card image -->
+                    <div class="menu-img">
+                        <img src="{{url_for('static', filename='img/' + food.image)}}" alt="Menu-Item" >        <!-- image location-->
+                    </div>
 
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
+                    <!-- content of food -->
+                    <div class="content">
+                        <h3>{{ food.food_name }}</h3>                           <!-- display food name-->
+                        <p><span>Price: &#8358;</span>  {{ food.price }} </p>   <!-- display food price-->
+                        <!-- if theres a discount, display. else none -->
+                        {% if food.discount > 0 %}
+                            <div id="discount">
+                                <p><span>-</span> {{ food.discount }}% </p>
+                            </div>
+                        {% endif %}
 
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
+                        <!-- add to cart button -->
+                        <a href="#" class="order-btn">Add to Cart</a>
+                    </div>
+                    <!-- end content -->
 
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
                 </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
+            <!--end card display  -->
 
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item" >
-                </div>
-                <div class="content">
-                    <h3>Food Name</h3>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
-
-            <div class="menu-card">
-                <div class="menu-img">
-                    <img src="img/burger.png" alt="Menu-Item">
-                </div>
-                <div class="content">
-                    <h3>Food Name</h5>
-                    <p><span>Price: &#8358;</span> 500</p>
-                    <a href="#" class="order-btn">Add to Cart</a>
-                </div>
-            </div>
+            {% endfor %}
+            <!-- end of loop -->
 
         </div>
+        <!-- END OF GRID VIEW -->
+
+         <!-- Pagination -->
+        <div class="row">
+            <!-- previous button -->
+            {% if foods.has_prev %}
+            <a href="{{url_for('home', page=foods.prev_num)}}" class="btn-outline-orange"> prev  </a>  <!--display previous page -->
+            {% endif %}
+            <!-- end previous -->
+
+            {% for page_num in foods.iter_pages() %}    <!-- iterate food items pages-->
+                {% if page_num %}
+
+                    {% if foods.page == page_num %}
+                    <a href="{{url_for('home', page=page_num)}}" class="btn-orange"> {{page_num}} </a>   <!--display current page as active-->
+                    {% else %}
+                    <a href="{{url_for('home', page=page_num)}}" class="btn-outline-orange"> {{page_num}}  </a>  <!--display current page and required number of pages-->
+                    {% endif %}
+                {% else %}
+                    ...
+                {% endif %}
+            {% endfor %}
+
+
+            <!-- next button -->
+            {% if foods.has_next %}
+            <a href="{{url_for('home', page=foods.next_num)}}" class="btn-outline-orange"> next  </a>  <!--display next page -->
+            {% endif %}
+            <!-- end next -->
+
+        </div>
+        <!-- end pagination -->
+
+
 
     </div>
 {% block modal %}

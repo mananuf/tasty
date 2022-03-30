@@ -176,4 +176,6 @@ def addFood():
         db.session.add(addchow)
         flash(f'{food_name} has been added to Foods', 'success')
         db.session.commit()
+
+        return redirect(url_for('foods'))
     return render_template('admin/addfood.html', title="Add food", form=form, categories=categories)  # render this template

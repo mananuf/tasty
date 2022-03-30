@@ -1,0 +1,33 @@
+.btn-outline-orange{
+    border: 1px solid rgb(255, 96, 0);
+    color: rgb(255, 96, 0);
+    border-radius: 5px;
+    padding: 3px 10px;
+    text-align: center;
+    margin: 2px;
+    transition: all 0.3s ease;
+}
+.btn-outline-orange:hover,
+.btn-outline-orange:focus,
+.btn-outline-orange:active{
+    background: rgb(255, 96, 0);
+    color: #fff;
+}
+
+
+.btn-orange{
+    background: rgb(255, 96, 0);
+    border: 1px solid rgb(255, 96, 0);
+    text-align: center;
+    color: #fff;
+    border-radius: 5px;
+    padding: 3px 10px;
+    transition: all 0.3s ease;
+    margin: 2px;
+}
+.btn-orange:hover,
+.btn-orange:focus,
+.btn-orange:active{
+    color: rgb(255, 96, 0);
+    background: #fff;
+}

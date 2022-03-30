@@ -247,14 +247,14 @@ html, body{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    position: relative;
 }
 
 /* menu card images */
 .menu .menu-grid .menu-card img{
-    max-width: 200px;
-    width: fit-content;
-    background-repeat: no-repeat;
-    background-position: center center;
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
 }
 
 .menu .menu-grid .menu-card .content{
@@ -269,6 +269,23 @@ html, body{
 .menu .menu-grid .menu-card p{
     color: rgb(121, 124, 133);
 }
+
+/* ------------- target discount display -------------- */
+.menu .menu-grid .menu-card #discount{  
+    position: absolute;
+    top: 5%;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-left: 1px solid rgb(255,96,0);
+    background-color: rgb(255,96,0);
+    font-size: small;
+    left: 0;
+}
+.menu .menu-grid .menu-card #discount p{
+    color: #fff;
+    padding: 3px;
+}
+
 /* menu card button  */
 .menu .menu-grid .menu-card .order-btn{
     padding: 10px;
@@ -277,12 +294,20 @@ html, body{
     display: block;
     border-radius: 5px;
     margin-top: 15px;
+    text-align: center;
     transition: all 0.3s ease;
 }
 .menu .menu-grid .menu-card .order-btn:hover{
     background-color: rgb(10, 15, 29);
 }
 
+/* pagination */
+.menu .row{
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
 /* -------------------------------------- END MENU CARDS -------------------------------------------------- */
 
 
@@ -653,3 +678,4 @@ html, body{
         padding-left: 32%;
     }
 }
+

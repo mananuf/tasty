@@ -3,13 +3,17 @@ from flask import redirect, render_template, request, session, url_for, flash
 from eatapp import app, db, bcrypt
 from eatapp.admin.forms import RegistrationForm, LoginForm
 from .models import User
+from eatapp.foods.models import Food, Categories
 
 
 
 # ------------- home route ----------------------
 @app.route('/')
 def home():
-    return render_template("home.html")
+    page = request.args.get('page',1, type=int) # get pages from page
+    foods = Food.query.filter(Food.stock > 0).paginate(page=page, per_page=6)   # get foods that have stock value > 0 (available) 
+                                                                                # and paginate items in page
+    return render_template("home.html", foods=foods)
 
 
 # ------------- Register route -------------------
